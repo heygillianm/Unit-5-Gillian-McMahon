@@ -1,21 +1,24 @@
 public class Num {
-    int num;
+    private int value;
 
-    public Num(int number){
-        num = number;
+    public Num(int newValue){
+        value = newValue;
     }
 
-    public int getNum(){
-        return num;
+    public int getValue(){
+        return value;
     }
 
-    public void setNum(int newNum){
-        num = newNum;
+    public void setValue(int newNum){
+        value = newNum;
     }
 
     public String toString(){
-        String result = "";
-        result += "Num: " + num;
+        String result = Integer.toString(value);
         return result;
+    }
+
+    public boolean equals(Num otherNum){
+        return this.value == otherNum.value;
     }
 }
