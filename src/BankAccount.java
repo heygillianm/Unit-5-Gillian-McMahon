@@ -10,12 +10,13 @@ public class BankAccount implements Lockable{
 
     //constructor for BankAccount class.Initializes instance variables
     public BankAccount (String accOwners, String accBank, String accName,
-                        double accBalance, double accInterest){
+                        double accBalance, double accInterest, int keyInput){
         balance = accBalance;
         accountName = accName;
         owners = accOwners;
         bankName = accBank;
         interest = accInterest;
+        key = keyInput;
         isLocked = true;
     }
 
@@ -24,12 +25,21 @@ public class BankAccount implements Lockable{
     }
 
     public void lock(int theLock){
-        theLock = 1;
+        if (theLock == key) {
+            isLocked = true;
+        }
+        else {
+            System.out.println("Unable to lock.");
+        }
     }
 
     public void unlock(int unlocked){
-        unlocked = 0;
-        isLocked = false;
+        if (unlocked == key) {
+            isLocked = false;
+        }
+        else {
+            System.out.println("Unable to unlock.");
+        }
     }
 
     public boolean locked(){
